@@ -1,0 +1,64 @@
+@import "../style.scss";
+
+.header {
+  background-color: whitesmoke;
+  height: 125px;
+  @include flex;
+  justify-content: space-between;
+  padding: 30px 60px;
+  border-bottom: 1px solid #999;
+
+  &__search {
+    width: 460px;
+
+    & div {
+      padding: 4px;
+      border-radius: 30px;
+    }
+  }
+
+  &__like-container {
+    @include flex;
+    cursor: pointer;
+    gap: 10px;
+  }
+
+  &__user {
+    display: flex;
+    gap: 50px;
+
+    &-pic {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $color-primary;
+
+    &:hover {
+      text-shadow: 0.5px 0.5px 0.5px #e17312;
+    }
+  }
+
+  &__profile {
+    @include flex;
+    gap: 15px;
+  }
+
+  &__name {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+
+    &-icon {
+      @include flex;
+      gap: 5px;
+      color: $color-primary;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  }
+}

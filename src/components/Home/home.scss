@@ -1,0 +1,128 @@
+@import "../style.scss";
+
+.home-container {
+  @include flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+  gap: 20px;
+  color: #333;
+  background-color: floralwhite;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.card {
+  width: 385px;
+  height: 560px;
+  margin: 15px;
+  float: left;
+  text-align: center;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.092), 0 10px 10px rgba(0, 0, 0, 0.092);
+  transition: 0.4s;
+  background: #f2f2f2;
+  position: relative;
+
+  &:hover {
+    transform: translateY(-1.2rem);
+    box-shadow: 0 3.2rem 6.4rem rgba(0, 0, 0, 0.06);
+  }
+
+  &__box {
+    overflow: hidden;
+    border-radius: 12px;
+  }
+
+  &__button-sm {
+    @include button-details;
+    top: 11px;
+    right: 18px;
+  }
+
+  &__img {
+    height: 295px;
+    width: 385px;
+    object-fit: cover;
+    border-radius: 12px;
+    transition: all 0.5s;
+    overflow: hidden;
+  }
+
+  &__info {
+    padding-top: 10px;
+  }
+
+  &__info--box {
+    @include flex;
+    justify-content: center;
+  }
+
+  &__title {
+    font-size: 20px;
+    margin: 10px;
+    font-weight: 400;
+  }
+  &__text {
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0;
+  }
+
+  &__details {
+    @include flex;
+    justify-content: space-between;
+    padding: 0 40px;
+  }
+
+  &__button {
+    width: 250px;
+    align-self: center;
+    background-image: linear-gradient(
+      to right,
+      #ff7e5f 0%,
+      #feb47b 51%,
+      #ff7e5f 100%
+    );
+    margin: 10px;
+    padding: 17px 40px;
+    font-family: "Poppins", sans-serif;
+    letter-spacing: 0.5px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+      background-position: right center;
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+}
+
+.property__details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+}
+
+.chevron {
+  @include button-details;
+}
+
+.right {
+  top: 27%;
+  right: 5%;
+}
+
+.left {
+  top: 27%;
+  left: 5%;
+}

@@ -1,0 +1,28 @@
+////// COLOR VARIABLES /////
+
+$color-primary: #e67e22;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+@mixin flex {
+  display: flex;
+  align-items: center;
+}
+
+@mixin button-details {
+  border: none;
+  background: none;
+  position: absolute;
+  cursor: pointer;
+}
