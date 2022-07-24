@@ -1,4 +1,3 @@
-import Search from "./components/Search/Search";
 import "./components/style.scss";
 import Main from "./components/Main/Main";
 import Home from "./components/Home/Home";
@@ -14,7 +13,6 @@ function App() {
 
         <Route path="likes" element={<Favourites />} />
       </Routes>
-      {/*  <Search /> */}
     </div>
   );
 }
