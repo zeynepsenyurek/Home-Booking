@@ -10,10 +10,12 @@ import {
 } from "../../assets/icon";
 import { useContext, useState } from "react";
 import { CityContext } from "../../Contexts/CityContext";
+import { NavLink } from "react-router-dom";
 
 const Card = ({ home }) => {
   const [liked, setLiked] = useState(false);
   const { setFavs } = useContext(CityContext);
+  const { details, setDetails } = useContext(CityContext);
 
   const handleOnClick = () => {
     if (liked) {
@@ -22,6 +24,10 @@ const Card = ({ home }) => {
       setFavs((prevState) => [...prevState, home]);
     }
     setLiked((prevState) => !prevState);
+  };
+
+  const clickHandler = () => {
+    setDetails([home]);
   };
 
   return (
@@ -59,7 +65,11 @@ const Card = ({ home }) => {
               {home.avgRating ? `${home.avgRating}` : "no rating"}
             </p>
           </div>
-          <button className="card__button">Get Property Details</button>
+          <NavLink to="/details">
+            <button className="card__button" onClick={clickHandler}>
+              Get Property Details
+            </button>
+          </NavLink>
         </div>
       </div>
     </div>

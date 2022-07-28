@@ -31,7 +31,7 @@ const Home = () => {
             .then((response) => response.json())
             .then((response) => setProperty(response))
             .catch((err) => console.error(err));
-        }, 1000)
+        }, 2000)
       )
       .catch((err) => console.error(err));
   };
@@ -52,10 +52,15 @@ const Home = () => {
     <div className="home">
       <Header />
       <div className="home-container">
+        {property.data ? (
+          property?.data?.map((home) => <Card key={home.id} home={home} />)
+        ) : (
+          <p>Loading...</p>
+        )}
         {/* <button onClick={filterHome}>Filter</button> */}
-        {property?.data?.map((home) => (
+        {/* {property?.data?.map((home) => (
           <Card key={home.id} home={home} />
-        ))}
+        ))} */}
       </div>
     </div>
   );

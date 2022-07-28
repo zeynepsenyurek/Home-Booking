@@ -7,6 +7,7 @@ const CityContextProvider = (props) => {
   const [city, setCity] = useState([]);
   const [property, setProperty] = useState([]);
   const [favs, setFavs] = useState([]);
+  const [details, setDetails] = useState([]);
 
   useEffect(() => {
     console.log(favs);
@@ -19,6 +20,8 @@ const CityContextProvider = (props) => {
     setProperty,
     favs,
     setFavs,
+    details,
+    setDetails,
   };
 
   return (

@@ -3,6 +3,7 @@ import profile from "../../assets/img/customer-3.jpg";
 import { IconArrow, IconHeartFill } from "../../assets/icon";
 import Search from "../Search/Search";
 import { NavLink } from "react-router-dom";
+import Profile from "../Profile/Profile";
 
 const Header = () => {
   return (
@@ -18,15 +19,7 @@ const Header = () => {
           </NavLink>
           <IconHeartFill />
         </div>
-        <div className="header__profile">
-          <img src={profile} className="header__user-pic" />
-          <div className="header__name">
-            <span>Zeynep Ş.</span>
-            <NavLink to="/profile" className="header__name-icon">
-              Profile <IconArrow className="icon" />
-            </NavLink>
-          </div>
-        </div>
+        <Profile />
       </div>
     </div>
   );
