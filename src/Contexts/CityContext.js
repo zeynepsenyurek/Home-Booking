@@ -9,6 +9,10 @@ const CityContextProvider = (props) => {
   const [favs, setFavs] = useState([]);
   const [details, setDetails] = useState([]);
 
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
+
   useEffect(() => {
     console.log(favs);
   }, [favs]);
@@ -22,6 +26,12 @@ const CityContextProvider = (props) => {
     setFavs,
     details,
     setDetails,
+    password,
+    setPassword,
+    confirmPassword,
+    setConfirmPassword,
+    errorMsg,
+    setErrorMsg,
   };
 
   return (
