@@ -36,7 +36,11 @@ const Card = ({ home }) => {
         <img src={home.images?.[0]} className="card__img"></img>
       </div>
       <button onClick={handleOnClick} className="card__button-sm">
-        {liked ? <IconHeartFill /> : <IconHeartEmpty width={28} height={28} />}
+        {liked ? (
+          <IconHeartFill width={28} height={28} />
+        ) : (
+          <IconHeartEmpty width={28} height={28} />
+        )}
       </button>
       <button className="chevron right">
         <ChevronRight />

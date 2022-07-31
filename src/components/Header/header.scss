@@ -1,12 +1,16 @@
 @import "../style.scss";
 
 .header {
-  background-color: whitesmoke;
   height: 125px;
   @include flex;
   justify-content: space-between;
   padding: 30px 60px;
-  border-bottom: 1px solid #999;
+  border-bottom: 1px solid rgba(34, 34, 34, 0.4156862745);
+  color: $color-primary;
+
+  &__logo {
+    width: 140px;
+  }
 
   &__search {
     width: 460px;
@@ -14,6 +18,18 @@
     & div {
       padding: 4px;
       border-radius: 30px;
+    }
+  }
+
+  &__signup {
+    @include flex;
+    @include button-style;
+    font-weight: 300;
+    padding: 6px 8px;
+
+    &:hover,
+    &:active {
+      background-color: $color-primary;
     }
   }
 
@@ -34,9 +50,23 @@
     }
   }
 
+  &__links {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  &__login {
+    padding-left: 6px;
+  }
+
   &__link {
     text-decoration: none;
     color: $color-primary;
+
+    &:hover {
+      color: $color-secondary;
+    }
   }
 
   &__profile {
@@ -55,6 +85,16 @@
       color: $color-primary;
       text-decoration: none;
       cursor: pointer;
+      transition: all 0.2s ease-in;
+
+      &:hover {
+        color: $color-secondary;
+
+        & svg {
+          margin-left: 3px;
+          transition: margin-left 0.2s;
+        }
+      }
     }
   }
 }

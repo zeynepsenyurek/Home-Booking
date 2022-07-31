@@ -1,0 +1,126 @@
+@import "../style.scss";
+
+.login {
+  @include bg;
+  background-image: url(../../assets/img/bg-10.jpg);
+  color: #222;
+  filter: blur(2px);
+}
+
+.form-box {
+  width: 500px;
+  height: 430px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(194, 187, 187, 0.768);
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.41);
+  padding: 40px;
+}
+
+.register-box {
+  height: 480px;
+}
+
+.form-box .header-text {
+  font-size: 32px;
+  font-weight: 600;
+  text-align: center;
+  padding-bottom: 30px;
+}
+.form-box input {
+  width: 100%;
+  font-size: 16px;
+  font-family: "Poppins";
+  background-color: transparent;
+  border: none;
+  border-bottom: 3px solid $color-primary;
+  resize: none;
+  outline: none;
+  margin: 10px 0px;
+  padding: 10px;
+
+  &:focus {
+    border-bottom: 3px solid $color-secondary;
+  }
+
+  &::placeholder {
+    color: #222;
+  }
+}
+.form-box input[type="checkbox"] {
+  display: none;
+}
+.form-box label {
+  position: relative;
+  margin-left: 5px;
+  margin-right: 10px;
+  top: 5px;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+.form-box label:before {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  position: absolute;
+  left: 0;
+  bottom: 1px;
+  background-color: #ddd;
+}
+.form-box input[type="checkbox"]:checked + label:before {
+  content: "\2713";
+  font-size: 20px;
+  color: $color-secondary;
+  text-align: center;
+  line-height: 20px;
+}
+.form-box span {
+  font-size: 14px;
+}
+.form-box button {
+  background-color: $color-primary;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+  padding: 10px;
+  margin: 20px 0px;
+  transition: all 0.4s;
+
+  &:hover {
+    background-color: $color-secondary;
+
+    transition: all 0.4s;
+  }
+}
+span a {
+  color: $color-primary;
+}
+
+.register-link {
+  color: $color-primary;
+  display: flex;
+  justify-content: center;
+  font-weight: 500;
+  text-decoration: none;
+
+  &:hover {
+    color: #222;
+
+    transition: all 0.4s;
+  }
+}
+
+.error-msg {
+  color: $color-secondary;
+  font-weight: 500;
+}

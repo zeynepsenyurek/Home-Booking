@@ -6,8 +6,8 @@
   width: 100%;
   justify-content: center;
   gap: 20px;
-  color: #333;
-  background-color: floralwhite;
+  color: $color-primary;
+  background-color: $color-bg;
   padding-top: 50px;
   padding-bottom: 50px;
 }
@@ -84,6 +84,13 @@
       #feb47b 51%,
       #ff7e5f 100%
     );
+    background-image: linear-gradient(
+      to right,
+      #d66d75 0%,
+      #f6cda8 51%,
+      #d66d75 100%
+    );
+
     margin: 10px;
     padding: 17px 40px;
     font-family: "Poppins", sans-serif;

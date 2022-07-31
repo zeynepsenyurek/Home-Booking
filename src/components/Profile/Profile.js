@@ -9,7 +9,8 @@ const Profile = () => {
       <div className="header__name">
         <span>Zeynep Ş.</span>
         <NavLink to="/profile" className="header__name-icon">
-          Profile <IconArrow className="icon" />
+          Profile
+          <IconArrow className="icon" />
         </NavLink>
       </div>
     </div>

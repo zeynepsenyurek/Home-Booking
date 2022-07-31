@@ -1,6 +1,7 @@
 import { useContext, useEffect } from "react";
 import { CityContext } from "../../Contexts/CityContext";
 import Card from "../Card/Card";
+import Header from "../Header/Header";
 
 const Favourites = () => {
   const { favs } = useContext(CityContext);
@@ -8,7 +9,7 @@ const Favourites = () => {
 
   return (
     <div>
-      <h1>hello</h1>
+      <Header />
       <div className="home-container">
         {favs?.map((home) => (
           <Card key={home.id} home={home} />

@@ -25,7 +25,7 @@ const Home = () => {
       .then((response) =>
         setTimeout(() => {
           fetch(
-            `${PROPERTY_API_URL}?id=${response?.data[0]?.id}&totalRecords=10&currency=USD&adults=1`,
+            `${PROPERTY_API_URL}?id=${response?.data?.[0]?.id}&totalRecords=10&currency=USD&adults=1`,
             searchPropertyByPlace
           )
             .then((response) => response.json())
