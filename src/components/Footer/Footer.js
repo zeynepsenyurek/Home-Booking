@@ -53,7 +53,7 @@ const Footer = () => {
               onClick={inputEmailPlaceholder}
             />
           </div>
-          <input type="submit" value="Subscribe" class="footer__button" />
+          <input type="submit" value="Subscribe" class="main-button" />
         </form>
         <p class="footer__text">
           By subscribing you agree to with our

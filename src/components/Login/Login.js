@@ -1,21 +1,72 @@
 import "./login.scss";
-import { NavLink } from "react-router-dom";
-
+import { NavLink, useNavigate } from "react-router-dom";
+import { CityContext } from "../../Contexts/CityContext";
+import { useContext, useState } from "react";
+import { IconError } from "../../assets/icon";
+import { signup, useAuth, login } from "../Firebase/Firebase";
 const Login = () => {
+  const [password, setPassword] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
+  const [email, setEmail] = useState("");
+  const navigate = useNavigate();
+
+  const { loading, setLoading } = useContext(CityContext);
+
+  const signUp = async (e) => {
+    setErrorMsg("");
+    if (!password || !email) {
+      setErrorMsg("Please fill all the input fields");
+      return;
+    }
+    if (password.length < 5) {
+      setErrorMsg("Password must be at least 6 character");
+      return;
+    }
+    try {
+      setLoading(true);
+      const response = await login(email, password);
+      if (response?.user?.email) {
+        setLoading(false);
+        navigate("/home");
+      }
+    } catch {
+      setErrorMsg("Invalid password or email");
+    }
+  };
   return (
     <div>
       <div className="login"> </div>
       <div className="form-box">
         <div className="header-text">Login</div>
-        <input placeholder="Your Email Address" type="text" />{" "}
-        <input placeholder="Your Password" type="password" />{" "}
+        {errorMsg ? (
+          <div className="error-msg">
+            <IconError /> {errorMsg}
+          </div>
+        ) : null}
+        <input
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Your Email Address"
+          type="text"
+        />{" "}
+        <input
+          onChange={(e) => setPassword(e.target.value)}
+          value={password}
+          placeholder="Your Password"
+          type="password"
+        />{" "}
         <input id="terms" type="checkbox" /> <label for="terms"></label>
         <span>
           Agree with <a href="#">Terms & Conditions</a>
         </span>{" "}
-        <button>Login</button>
+        <button onClick={signUp} className="form-box_button">
+          Login
+        </button>
         <NavLink to="/signup" className="register-link">
           Create an account
+        </NavLink>
+        <NavLink to="/home" className="register-link">
+          Back to home
         </NavLink>
       </div>
     </div>

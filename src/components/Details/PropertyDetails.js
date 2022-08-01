@@ -6,6 +6,7 @@ import { useContext, useState } from "react";
 import { CityContext } from "../../Contexts/CityContext";
 import { IconHome, IconPrice, IconRating, IconStar } from "../../assets/icon";
 import Modal from "../Modal/Modal";
+import Header from "../Header/Header";
 
 const PropertyDetails = () => {
   const { details } = useContext(CityContext);
@@ -31,13 +32,14 @@ const PropertyDetails = () => {
 
   return (
     <div className="details">
-      <div className="header">
+      {/* <div className="header">
         <div>LOGO</div>
         <NavLink to="/home" className="header__link">
           Back to home
         </NavLink>
         <Profile />
-      </div>
+      </div> */}
+      <Header />
       <section className="container-slider">
         {details[0]?.images.map((obj, index) => {
           return (

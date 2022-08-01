@@ -48,3 +48,15 @@ html {
   cursor: pointer;
   border: none;
 }
+
+.main-button {
+  @include button-style;
+  padding: 10px 20px;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+
+  &:hover,
+  &:active {
+    background-color: $color-primary;
+  }
+}

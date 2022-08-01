@@ -9,7 +9,7 @@
 
 .form-box {
   width: 500px;
-  height: 430px;
+  height: 470px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -21,7 +21,7 @@
 }
 
 .register-box {
-  height: 480px;
+  height: 530px;
 }
 
 .form-box .header-text {
@@ -84,7 +84,7 @@
 .form-box span {
   font-size: 14px;
 }
-.form-box button {
+.form-box_button {
   background-color: $color-primary;
   color: #fff;
   border: none;
@@ -102,8 +102,26 @@
     transition: all 0.4s;
   }
 }
+
+.btn-disabled {
+  background-color: gray;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+  padding: 10px;
+  margin: 20px 0px;
+}
 span a {
   color: $color-primary;
+
+  &:hover {
+    color: #222;
+
+    transition: all 0.4s;
+  }
 }
 
 .register-link {
@@ -112,6 +130,7 @@ span a {
   justify-content: center;
   font-weight: 500;
   text-decoration: none;
+  margin-bottom: 6px;
 
   &:hover {
     color: #222;

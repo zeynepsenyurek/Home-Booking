@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import React from "react";
+import { signup, useAuth } from "../components/Firebase/Firebase";
 
 export const CityContext = React.createContext();
 
@@ -9,9 +10,10 @@ const CityContextProvider = (props) => {
   const [favs, setFavs] = useState([]);
   const [details, setDetails] = useState([]);
 
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [errorMsg, setErrorMsg] = useState("");
+  //// LOGIN & REGISTER PAGE VALIDATION STATES ////
+
+  const [currentUser, setCurrentUser] = useState();
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     console.log(favs);
@@ -26,12 +28,10 @@ const CityContextProvider = (props) => {
     setFavs,
     details,
     setDetails,
-    password,
-    setPassword,
-    confirmPassword,
-    setConfirmPassword,
-    errorMsg,
-    setErrorMsg,
+    currentUser,
+    setCurrentUser,
+    setLoading,
+    loading,
   };
 
   return (
