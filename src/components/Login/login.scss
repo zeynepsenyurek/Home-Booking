@@ -9,7 +9,7 @@
 
 .form-box {
   width: 500px;
-  height: 470px;
+  height: 460px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -85,35 +85,14 @@
   font-size: 14px;
 }
 .form-box_button {
+  @include register-button;
   background-color: $color-primary;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  width: 100%;
-  font-size: 18px;
-  padding: 10px;
-  margin: 20px 0px;
-  transition: all 0.4s;
 
   &:hover {
     background-color: $color-secondary;
-
-    transition: all 0.4s;
   }
 }
 
-.btn-disabled {
-  background-color: gray;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  width: 100%;
-  font-size: 18px;
-  padding: 10px;
-  margin: 20px 0px;
-}
 span a {
   color: $color-primary;
 
@@ -130,7 +109,7 @@ span a {
   justify-content: center;
   font-weight: 500;
   text-decoration: none;
-  margin-bottom: 6px;
+  margin-bottom: 10px;
 
   &:hover {
     color: #222;

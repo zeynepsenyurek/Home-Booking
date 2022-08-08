@@ -55,7 +55,7 @@ const Footer = () => {
           </div>
           <input type="submit" value="Subscribe" class="main-button" />
         </form>
-        <p class="footer__text">
+        <p className="footer__text">
           By subscribing you agree to with our
           <a href="#">Privacy Policy</a>
           and provide consent to receive updates from our company.

@@ -12,6 +12,9 @@ import { signup, useAuth, logout } from "../Firebase/Firebase";
 const Header = () => {
   const { loading, setLoading } = useContext(CityContext);
   const currentUser = useAuth();
+
+  //logout
+
   async function handleLogout() {
     setLoading(true);
     try {
@@ -41,7 +44,7 @@ const Header = () => {
           {currentUser?.email ? (
             <div className="header__contents">
               <NavLink to="/profile" className="header__link">
-                {currentUser?.email}
+                My Profile
               </NavLink>
               <button onClick={handleLogout} className="main-button">
                 Log out

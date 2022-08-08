@@ -10,6 +10,7 @@ const Register = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
   const [email, setEmail] = useState("");
+  const [termsClicked, setTermsClicked] = useState(false);
 
   const { loading, setLoading } = useContext(CityContext);
 
@@ -30,6 +31,7 @@ const Register = () => {
       setErrorMsg("Passwords do not match");
       return;
     }
+
     try {
       setLoading(true);
       const response = await signup(email, password);
@@ -40,6 +42,11 @@ const Register = () => {
     } catch {
       setErrorMsg("Could not create an account");
     }
+  };
+
+  const isTermsClicked = () => {
+    setTermsClicked(true);
+    return;
   };
 
   return (
@@ -72,14 +79,12 @@ const Register = () => {
         />
         <input id="terms" type="checkbox" /> <label for="terms"></label>
         <span>
-          Agree with <a href="#">Terms & Conditions</a>
+          Agree with{" "}
+          <a href="#" onClick={isTermsClicked}>
+            Terms & Conditions
+          </a>
         </span>
-        <button
-          onClick={signUp}
-          className={
-            loading || currentUser ? "btn-disabled" : "form-box_button"
-          }
-        >
+        <button onClick={signUp} className="form-box_button">
           Sign up
         </button>
         <NavLink to="/login" className="register-link">

@@ -6,7 +6,9 @@ import {
   onAuthStateChanged,
   signOut,
   signInWithEmailAndPassword,
+  updateProfile,
 } from "firebase/auth";
+import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
 import { useContext, useEffect, useState } from "react";
 import { CityContext } from "../../Contexts/CityContext";
 // TODO: Add SDKs for Firebase products that you want to use
@@ -25,6 +27,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
+const storage = getStorage();
 
 export function signup(email, password) {
   return createUserWithEmailAndPassword(auth, email, password);
@@ -52,4 +55,22 @@ export function useAuth() {
   }, []);
 
   return currentUser;
+}
+
+// Storage
+
+export async function upload(file, currentUser, setLoading) {
+  const fileRef = ref(storage, currentUser.uid + ".png");
+  setLoading(true);
+
+  const snapshot = await uploadBytes(fileRef, file);
+
+  const photoURL = await getDownloadURL(fileRef);
+
+  // updating the profile picture dynamically
+
+  updateProfile(currentUser, { photoURL });
+  setLoading(false);
+  alert("uploaded file");
+  window.location.reload();
 }

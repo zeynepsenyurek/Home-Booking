@@ -27,7 +27,7 @@
 
   &__signup {
     @include flex;
-    @include button-style;
+    @include home-button;
     font-weight: 300;
     padding: 6px 8px;
 
@@ -46,12 +46,6 @@
   &__user {
     display: flex;
     gap: 50px;
-
-    &-pic {
-      width: 45px;
-      height: 45px;
-      border-radius: 50%;
-    }
   }
 
   &__links {
@@ -70,35 +64,6 @@
 
     &:hover {
       color: $color-secondary;
-    }
-  }
-
-  &__profile {
-    @include flex;
-    gap: 15px;
-  }
-
-  &__name {
-    display: flex;
-    flex-direction: column;
-    cursor: pointer;
-
-    &-icon {
-      @include flex;
-      gap: 5px;
-      color: $color-primary;
-      text-decoration: none;
-      cursor: pointer;
-      transition: all 0.2s ease-in;
-
-      &:hover {
-        color: $color-secondary;
-
-        & svg {
-          margin-left: 3px;
-          transition: margin-left 0.2s;
-        }
-      }
     }
   }
 }
