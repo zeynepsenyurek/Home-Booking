@@ -3,17 +3,35 @@
 .footer {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  padding: 60px 80px 0 60px;
+  padding: 55px 80px 0 55px;
   border-top: 1px solid #2222226a;
   color: $color-primary;
 
-  @media only screen and (max-width: 700px) {
+  @media only screen and (max-width: $bp-large) {
+    padding: 40px 30px;
+  }
+
+  @media only screen and (max-width: $bp-medium) {
     grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  @media only screen and (max-width: $bp-small) {
+    padding: 30px 20px;
   }
 
   &__logo {
-    width: 155px;
+    width: 140px;
     height: 45px;
+
+    @media only screen and (max-width: $bp-large) {
+      width: 120px;
+      height: 35px;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+      width: 100px;
+      height: 34px;
+    }
   }
 
   &__form {
@@ -34,19 +52,27 @@
       background-color: #ffffff;
       border-radius: 30px;
       box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+
+      @media only screen and (max-width: $bp-large) {
+        padding: 16px;
+        font-size: 15px;
+      }
     }
   }
 
   &__first {
     display: flex;
-    gap: 18%;
+    gap: 10%;
+
+    @media only screen and (max-width: $bp-medium) {
+      gap: 20%;
+    }
+    @media only screen and (max-width: $bp-smallest) {
+      gap: 12%;
+    }
 
     & ul {
       padding: 0;
-    }
-
-    @media only screen and (max-width: 700px) {
-      justify-content: space-around;
     }
   }
 
@@ -56,8 +82,19 @@
     padding-bottom: 20px;
     display: inline-block;
 
+    @media only screen and (max-width: $bp-large) {
+      font-size: 15px;
+    }
+    @media only screen and (max-width: $bp-small) {
+      padding-bottom: 10px;
+    }
+
     &--text {
       font-size: 15px;
+
+      @media only screen and (max-width: $bp-large) {
+        font-size: 14px;
+      }
     }
   }
 
@@ -65,6 +102,13 @@
     font-size: 15px;
     list-style: none;
     cursor: pointer;
+    display: block;
+    text-decoration: none;
+    color: $color-primary;
+
+    @media only screen and (max-width: $bp-large) {
+      font-size: 14px;
+    }
 
     &:not(:last-child) {
       padding-bottom: 18px;
@@ -77,7 +121,6 @@
 
   &__text {
     font-size: 13px;
-    width: 80%;
     padding-top: 15px;
 
     & a {

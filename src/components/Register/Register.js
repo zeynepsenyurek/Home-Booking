@@ -1,9 +1,8 @@
 import { CityContext } from "../../Contexts/CityContext";
 import { IconError } from "../../assets/icon";
 import { signup, useAuth } from "../Firebase/Firebase";
-import { useRef, useState } from "react";
+import { useState, useContext } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { useContext } from "react";
 
 const Register = () => {
   const [password, setPassword] = useState("");
@@ -31,6 +30,10 @@ const Register = () => {
       setErrorMsg("Passwords do not match");
       return;
     }
+    if (!termsClicked) {
+      setErrorMsg("Please check the terms");
+      return;
+    }
 
     try {
       setLoading(true);
@@ -40,12 +43,18 @@ const Register = () => {
         navigate("/home");
       }
     } catch {
-      setErrorMsg("Could not create an account");
+      setErrorMsg("Please enter a valid email adress");
+    }
+  };
+
+  const onEnter = (key) => {
+    if (key === "Enter") {
+      signUp();
     }
   };
 
   const isTermsClicked = () => {
-    setTermsClicked(true);
+    setTermsClicked(!termsClicked);
     return;
   };
 
@@ -62,27 +71,29 @@ const Register = () => {
         <input
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          htmlFor
           placeholder="Your Email Address"
           type="text"
+          onKeyDown={(e) => onEnter(e.key)}
         />
         <input
           onChange={(e) => setPassword(e.target.value)}
           value={password}
           placeholder="Your Password"
           type="password"
+          onKeyDown={(e) => onEnter(e.key)}
         />
         <input
           onChange={(e) => setConfirmPassword(e.target.value)}
           value={confirmPassword}
           placeholder="Confirm Your Password"
           type="password"
+          onKeyDown={(e) => onEnter(e.key)}
         />
-        <input id="terms" type="checkbox" /> <label for="terms"></label>
+        <input id="terms" type="checkbox" />{" "}
+        <label htmlFor="terms" onClick={isTermsClicked}></label>
         <span>
-          Agree with{" "}
-          <a href="#" onClick={isTermsClicked}>
-            Terms & Conditions
-          </a>
+          Agree with <a href="#">Terms & Conditions</a>
         </span>
         <button onClick={signUp} className="form-box_button">
           Sign up

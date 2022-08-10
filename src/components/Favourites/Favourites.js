@@ -1,19 +1,25 @@
 import { useContext, useEffect } from "react";
 import { CityContext } from "../../Contexts/CityContext";
+import { NavLink } from "react-router-dom";
 import Card from "../Card/Card";
-import Header from "../Header/Header";
+import "../style.scss";
 
 const Favourites = () => {
   const { favs } = useContext(CityContext);
-  console.log("favs", favs);
 
   return (
     <div>
-      <Header />
       <div className="home-container">
-        {favs?.map((home) => (
-          <Card key={home.id} home={home} />
-        ))}
+        {favs.length ? (
+          favs?.map((home) => <Card key={home.id} home={home} />)
+        ) : (
+          <div className="fav-box">
+            <p>You haven't selected any favourites yet.. 😿</p>
+            <NavLink to="/home" className="register-link">
+              Back to home
+            </NavLink>
+          </div>
+        )}
       </div>
     </div>
   );

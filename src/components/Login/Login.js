@@ -12,7 +12,7 @@ const Login = () => {
 
   const { loading, setLoading } = useContext(CityContext);
 
-  const signUp = async (e) => {
+  const signIn = async (e) => {
     setErrorMsg("");
     if (!password || !email) {
       setErrorMsg("Please fill all the input fields");
@@ -38,6 +38,12 @@ const Login = () => {
     }
   };
 
+  const onEnter = (key) => {
+    if (key === "Enter") {
+      signIn();
+    }
+  };
+
   return (
     <div>
       <div className="login"> </div>
@@ -53,15 +59,17 @@ const Login = () => {
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Your Email Address"
           type="text"
+          onKeyDown={(e) => onEnter(e.key)}
         />
         <input
           onChange={(e) => setPassword(e.target.value)}
           value={password}
           placeholder="Your Password"
           type="password"
+          onKeyDown={(e) => onEnter(e.key)}
         />
 
-        <button onClick={signUp} className="form-box_button">
+        <button onClick={signIn} className="form-box_button">
           Login
         </button>
         <NavLink to="/signup" className="register-link">

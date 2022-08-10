@@ -9,6 +9,12 @@ const Search = () => {
   const { city, setCity } = useContext(CityContext);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    if (city.label) {
+      navigate("/home");
+    }
+  }, [city]);
+
   const loadOptions = async (inputValue) => {
     return await fetch(
       `${GEO_API_URL}/cities?minPopulation=1000000&namePrefix=${inputValue}`,
@@ -36,7 +42,6 @@ const Search = () => {
 
   const handleOnChange = (cityData) => {
     setCity(cityData);
-    navigate("/home");
   };
 
   return (

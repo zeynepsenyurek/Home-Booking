@@ -7,6 +7,12 @@ $color-text: #f4f4f4;
 $color-bg: #f8e6bf7f;
 $color-secondary: #dd6c6b;
 
+// RESPONSIVE BREAKPOINTS
+$bp-large: 1000px; // 1000px
+$bp-medium: 800px; // 800px
+$bp-small: 600px; // 600px
+$bp-smallest: 500px; // 500px
+
 *,
 *::before,
 *::after {
@@ -65,10 +71,15 @@ html {
   @include home-button;
   padding: 10px 20px;
   font-family: "Poppins", sans-serif;
-  font-size: 15px;
+  font-size: 14px;
 
   &:hover,
   &:active {
     background-color: $color-primary;
   }
+}
+
+.fav-box {
+  display: flex;
+  flex-direction: column;
 }

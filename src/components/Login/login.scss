@@ -8,8 +8,7 @@
 }
 
 .form-box {
-  width: 500px;
-  height: 460px;
+  width: 460px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -18,10 +17,14 @@
   border-radius: 5px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.41);
   padding: 40px;
+
+  @media only screen and (max-width: $bp-small) {
+    width: 375px;
+  }
 }
 
 .register-box {
-  height: 530px;
+  height: 540px;
 }
 
 .form-box .header-text {

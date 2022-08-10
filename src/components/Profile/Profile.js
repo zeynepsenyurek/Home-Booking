@@ -5,7 +5,6 @@ import { CityContext } from "../../Contexts/CityContext";
 import { NavLink, useNavigate } from "react-router-dom";
 import "./profile.scss";
 
-import { uid } from "uid";
 import {
   signup,
   useAuth,

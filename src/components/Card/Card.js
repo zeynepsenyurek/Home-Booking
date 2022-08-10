@@ -6,21 +6,29 @@ import {
   IconHeartEmpty,
   IconHeartFill,
 } from "../../assets/icon";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { CityContext } from "../../Contexts/CityContext";
 import { NavLink } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
 const Card = ({ home }) => {
   const [liked, setLiked] = useState(false);
-  const { setFavs } = useContext(CityContext);
+  const { favs, setFavs } = useContext(CityContext);
   const { details, setDetails } = useContext(CityContext);
   const { pathname } = useLocation();
+
+  useEffect(() => {
+    favs?.map((fav) => {
+      if (fav.id === home.id) {
+        setLiked(true);
+      }
+    });
+  }, []);
 
   const handleOnClick = () => {
     if (liked) {
       setFavs((prevState) => {
-        prevState.filter((fav) => fav.id !== home.id);
+        return prevState.filter((fav) => fav.id !== home.id);
       });
     } else {
       setFavs((prevState) => [...prevState, home]);
@@ -38,16 +46,11 @@ const Card = ({ home }) => {
         <img src={home.images?.[0]} className="card__img"></img>
       </div>
       <button onClick={handleOnClick} className="card__button-sm">
-        {pathname === "/likes" ? null : liked ? (
+        {liked ? (
           <IconHeartFill width={28} height={28} />
         ) : (
           <IconHeartEmpty width={28} height={28} />
         )}
-        {/* {liked ? (
-          <IconHeartFill width={28} height={28} />
-        ) : (
-          <IconHeartEmpty width={28} height={28} />
-        )} */}
       </button>
 
       <div className="card__info">
