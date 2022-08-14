@@ -1,7 +1,7 @@
 import BtnSlider from "./BtnSlider";
 import Profile from "../Profile/Profile";
 import "../Details/details.scss";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { useContext, useState } from "react";
 import { CityContext } from "../../Contexts/CityContext";
 import { IconHome, IconPrice, IconRating, IconStar } from "../../assets/icon";
@@ -39,7 +39,7 @@ const PropertyDetails = () => {
         </NavLink>
         <Profile />
       </div> */}
-      <Header />
+
       <section className="container-slider">
         {details[0]?.images.map((obj, index) => {
           return (
@@ -89,9 +89,13 @@ const PropertyDetails = () => {
               <IconStar /> Details:
             </div>
             <div className="details__amenities">
-              {details[0].listingPreviewAmenityNames.map((el) => (
-                <div> -{el} </div>
-              ))}
+              {details[0].listingPreviewAmenityNames.length > 0 ? (
+                details[0].listingPreviewAmenityNames.map((el) => (
+                  <div> -{el} </div>
+                ))
+              ) : (
+                <div className="features">No amenities to show 😿</div>
+              )}
             </div>
           </div>
         </div>

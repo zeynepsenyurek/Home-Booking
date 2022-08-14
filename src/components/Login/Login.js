@@ -1,5 +1,5 @@
 import "./login.scss";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { CityContext } from "../../Contexts/CityContext";
 import { useContext, useState } from "react";
 import { IconError } from "../../assets/icon";
@@ -9,6 +9,7 @@ const Login = () => {
   const [errorMsg, setErrorMsg] = useState("");
   const [email, setEmail] = useState("");
   const navigate = useNavigate();
+  const { state } = useLocation();
 
   const { loading, setLoading } = useContext(CityContext);
 
@@ -29,7 +30,11 @@ const Login = () => {
     try {
       setLoading(true);
       const response = await login(email, password);
-      if (response?.user?.email) {
+
+      if (response?.user?.email && state?.previousPath === "/details") {
+        setLoading(false);
+        navigate("/details");
+      } else if (response?.user?.email) {
         setLoading(false);
         navigate("/home");
       }

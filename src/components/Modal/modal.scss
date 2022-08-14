@@ -1,25 +1,96 @@
+@import "../style.scss";
+
 .modal {
   position: absolute;
   top: 105%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 70%;
+  color: #3d2a34;
 
-  background-color: white;
-  padding: 6rem;
+  background-color: #eee;
+  padding: 60px;
   border-radius: 5px;
   box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
   z-index: 10;
+
+  @media only screen and (max-width: $bp-smallest) {
+    padding: 20px;
+  }
 
   &__btn {
     position: absolute;
     top: 25px;
     right: 30px;
     font-size: 24px;
-    color: #333;
+    color: #3d2a34;
     cursor: pointer;
     border: none;
     background: none;
     transition: all 6s ease-in-out;
+    @media only screen and (max-width: $bp-smallest) {
+      font-size: 18px;
+      right: 15px;
+      top: 15px;
+    }
+
+    &::before {
+      content: "";
+      width: 40px;
+      height: 40px;
+      background: #adadad8a;
+      border-radius: 50%;
+      position: absolute;
+      top: -6px;
+      left: -6px;
+
+      @media only screen and (max-width: $bp-smallest) {
+        display: none;
+      }
+    }
+  }
+
+  &__input-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  input {
+    width: 250px;
+    font-size: 16px;
+    font-family: "Poppins";
+    background-color: transparent;
+    border: none;
+    resize: none;
+    outline: none;
+    margin: 10px 0px;
+    padding: 10px;
+    background-color: rgb(222, 222, 222);
+    border-radius: 8px;
+
+    &:focus {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      border-bottom: 3px solid $color-secondary;
+    }
+
+    &::placeholder {
+      color: #222;
+    }
+  }
+
+  .md {
+    width: 150px;
+    margin-top: 15px;
+  }
+
+  &__link {
+    text-decoration: none;
+    margin: 0 5px;
+    color: $color-secondary;
+
+    &:hover {
+      color: $color-tertiary;
+    }
   }
 }

@@ -2,7 +2,7 @@ import { CityContext } from "../../Contexts/CityContext";
 import { IconError } from "../../assets/icon";
 import { signup, useAuth } from "../Firebase/Firebase";
 import { useState, useContext } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 
 const Register = () => {
   const [password, setPassword] = useState("");
@@ -10,6 +10,8 @@ const Register = () => {
   const [errorMsg, setErrorMsg] = useState("");
   const [email, setEmail] = useState("");
   const [termsClicked, setTermsClicked] = useState(false);
+
+  const { state } = useLocation();
 
   const { loading, setLoading } = useContext(CityContext);
 
@@ -38,9 +40,13 @@ const Register = () => {
     try {
       setLoading(true);
       const response = await signup(email, password);
-      if (response?.user?.email) {
+      if (response?.user?.email && state?.previousPath === "/details") {
+        setLoading(false);
+        navigate("/details");
+      } else if (response?.user?.email) {
         setLoading(false);
         navigate("/home");
+        console.log(state?.previousPath);
       }
     } catch {
       setErrorMsg("Please enter a valid email adress");
