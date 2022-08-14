@@ -4,7 +4,7 @@
   height: 125px;
   @include flex;
   justify-content: space-between;
-  padding: 30px 55px;
+  padding: 30px 45px;
   border-bottom: 1px solid rgba(34, 34, 34, 0.4156862745);
   color: $color-primary;
   position: relative;
@@ -117,6 +117,7 @@
   position: absolute;
   top: 89px;
   right: 0;
+  z-index: 100;
 
   & a {
     cursor: pointer;

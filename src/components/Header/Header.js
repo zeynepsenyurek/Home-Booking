@@ -1,7 +1,7 @@
 import "../Header/header.scss";
 import { IconArrow, IconHeartFill, IconMenu } from "../../assets/icon";
 import Search from "../Search/Search";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import logo from "../../assets/img/Monix.png";
 import { useContext, useState, useEffect } from "react";
 import { CityContext } from "../../Contexts/CityContext";
@@ -10,10 +10,12 @@ import { useAuth, logout } from "../Firebase/Firebase";
 const Header = () => {
   // state of viewport size
   const [desktop, setDesktop] = useState(window.innerWidth > 800);
+  const [menuItems, setMenuItems] = useState(false);
   const [isMenuClicked, setIsMenuClicked] = useState(false);
   const { loading, setLoading } = useContext(CityContext);
   const currentUser = useAuth();
   const { pathname } = useLocation();
+  const navigate = useNavigate();
 
   // conditionally render based on viewport size
   const updateMedia = () => {
@@ -29,12 +31,14 @@ const Header = () => {
 
   const openMenu = () => {
     setIsMenuClicked(!isMenuClicked);
+
     return;
   };
 
   //logout
 
   async function handleLogout() {
+    closeHamburgerMenu();
     setLoading(true);
     try {
       await logout();
@@ -42,7 +46,15 @@ const Header = () => {
       alert("error");
     }
     setLoading(false);
+    navigate("/home");
   }
+
+  const closeHamburgerMenu = () => {
+    setMenuItems(!setMenuItems);
+    if (setMenuItems) {
+      setIsMenuClicked(false);
+    }
+  };
 
   if (pathname === "/" || pathname === "/login" || pathname === "/signup") {
     return null;
@@ -101,7 +113,11 @@ const Header = () => {
       {isMenuClicked ? (
         <div className="hamburger-menu">
           <div className="header__like-container">
-            <NavLink to="/likes" className="header__link">
+            <NavLink
+              to="/likes"
+              className="header__link"
+              onClick={closeHamburgerMenu}
+            >
               Liked Properties
             </NavLink>
             <IconHeartFill />
@@ -109,7 +125,11 @@ const Header = () => {
           <div className="header__links">
             {currentUser?.email ? (
               <div className="header__contents">
-                <NavLink to="/profile" className="header__link">
+                <NavLink
+                  to="/profile"
+                  className="header__link"
+                  onClick={closeHamburgerMenu}
+                >
                   My Profile
                 </NavLink>
                 <a onClick={handleLogout} className="header__link">
@@ -119,12 +139,17 @@ const Header = () => {
             ) : (
               <>
                 {" "}
-                <NavLink to="/login" className="header__link">
+                <NavLink
+                  to="/login"
+                  className="header__link"
+                  onClick={closeHamburgerMenu}
+                >
                   Log in
                 </NavLink>
                 <NavLink
                   to="/signup"
                   className="header__link hamburger-menu--signup"
+                  onClick={closeHamburgerMenu}
                 >
                   Sign up
                   <IconArrow />

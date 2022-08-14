@@ -9,11 +9,14 @@ const Search = () => {
   const { city, setCity } = useContext(CityContext);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (city.label) {
-      navigate("/home");
-    }
-  }, [city]);
+  // useEffect(() => {
+  //   if (city.label) {
+  //     console.log("heree")
+  //     navigate("/home");
+  //   }
+  // }, [city]);
+
+  // minPopulation=1000000
 
   const loadOptions = async (inputValue) => {
     return await fetch(
@@ -42,6 +45,7 @@ const Search = () => {
 
   const handleOnChange = (cityData) => {
     setCity(cityData);
+    navigate("/home");
   };
 
   return (

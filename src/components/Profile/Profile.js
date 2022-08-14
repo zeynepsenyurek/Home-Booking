@@ -56,7 +56,7 @@ const Profile = () => {
   };
 
   return (
-    <div className="profile__container">
+    <div>
       <div className="bg"></div>
       <div className="profile">
         <div className="header__name">

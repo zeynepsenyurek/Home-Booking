@@ -1,16 +1,21 @@
 @import "../style.scss";
 
-.home-container {
-  @include flex;
-  flex-wrap: wrap;
-  width: 100%;
-  justify-content: center;
-  gap: 20px;
-  color: $color-primary;
+.home {
   background-color: $color-bg;
-  padding-top: 50px;
-  padding-bottom: 50px;
+
+  &-container {
+    @include flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    gap: 20px;
+    color: $color-primary;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: $color-bg;
+  }
 }
+
 .card {
   width: 385px;
   height: 560px;
@@ -18,7 +23,6 @@
   float: left;
   text-align: center;
   border-radius: 20px;
-  cursor: pointer;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.092), 0 10px 10px rgba(0, 0, 0, 0.092);
   transition: 0.4s;
   background: #f2f2f2;

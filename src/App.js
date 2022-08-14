@@ -20,9 +20,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Main />} />
-
         <Route path="/home" element={<Home />} />
-
         <Route path="likes" element={<Favourites />} />
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<Register />} />

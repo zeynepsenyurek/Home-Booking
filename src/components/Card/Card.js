@@ -13,8 +13,7 @@ import { useLocation } from "react-router-dom";
 
 const Card = ({ home }) => {
   const [liked, setLiked] = useState(false);
-  const { favs, setFavs } = useContext(CityContext);
-  const { details, setDetails } = useContext(CityContext);
+  const { favs, setFavs, details, setDetails } = useContext(CityContext);
   const { pathname } = useLocation();
 
   useEffect(() => {
@@ -64,7 +63,7 @@ const Card = ({ home }) => {
             <IconHome />
             <p className="card__text">
               {/* {home.beds < 2 ? ` ${home.beds} room` : ` ${home.beds} rooms`} */}
-              {home.beds} room{home.beds > 2 ? "s" : ""}
+              {home.beds} room{home.beds > 1 ? "s" : ""}
             </p>
           </div>
           <div className="card__details">
