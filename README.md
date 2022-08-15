@@ -1,70 +1,32 @@
-# Getting Started with Create React App
+# Home Booking Website
+- Aims to connect people who want to rent out their homes with people who are looking for accommodations.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Main Page
+- Start by typing your destination and the search engine will autocomplete
 
-## Available Scripts
+![search](https://user-images.githubusercontent.com/97789864/184702585-e4338449-19c0-40ca-b199-88e629337dbd.jpg)
 
-In the project directory, you can run:
+### Home 
+- 10 cards will be returned with different home results ready to be booked
 
-### `npm start`
+![cards](https://user-images.githubusercontent.com/97789864/184703431-65643d6d-a306-4f26-9ff1-a6575ef7f95c.jpg)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Details
+- When a user clicks "Get Property Details" they will be redirected to the details page where they can find further information and connect with the property owner by filling out the form below if they are already logged in. If not, then the link will redirect the user to the Login or Sign up page, and redirect back to the details page.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![details](https://user-images.githubusercontent.com/97789864/184704627-c4e09123-1546-4b06-9d2c-633438b3bbde.jpg)
 
-### `npm test`
+## Sign up 
+- Basic form validations are required to sign up. User data is stored in Firebase 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![signup](https://user-images.githubusercontent.com/97789864/184705011-db3d9e18-5276-4760-b1c3-94588a967cf5.jpg)
 
-### `npm run build`
+## Profile
+- User can change their profile picture by uploading a file. The updated file is stored in Firebase storage
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![profile](https://user-images.githubusercontent.com/97789864/184706012-cf3d766f-b1a7-42f0-b4cc-06f082a3958a.jpg)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Liked Properties
+- Users can like/unline a property by clicking the heart button on cards. Liked properties page returns the array of results of liked homes.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![liked](https://user-images.githubusercontent.com/97789864/184706463-3334974c-cfb6-4310-8d55-08280106a843.jpg)
