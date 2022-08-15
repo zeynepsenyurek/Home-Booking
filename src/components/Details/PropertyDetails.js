@@ -3,7 +3,7 @@ import { IconStar } from "../../assets/icon";
 import BtnSlider from "./BtnSlider";
 import Modal from "../Modal/Modal";
 import { useContext, useState } from "react";
-import { Context } from "../../context/Context";
+import { Context } from "../../contexts/Context";
 
 const PropertyDetails = () => {
   // details state equals to current home which is clicked
@@ -66,14 +66,14 @@ const PropertyDetails = () => {
               <span>Bathroom: {details.listingBathroomLabel}</span>
             </div>
             <div className="features">
-              <IconStar /> 
+              <IconStar />
               <span>Bedroom: {details.listingBedLabel}</span>
             </div>
           </div>
           <div className="details__container--right">
             <div className="features">
               <IconStar />
-             <span>Rating: {details.avgRating}</span> 
+              <span>Rating: {details.avgRating}</span>
             </div>
             <div className="features">
               <IconStar />

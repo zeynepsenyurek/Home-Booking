@@ -7,7 +7,7 @@ import {
   IconHeartFill,
 } from "../../assets/icon";
 import { useContext, useEffect, useState } from "react";
-import { Context } from "../../context/Context";
+import { Context } from "../../contexts/Context";
 import { NavLink } from "react-router-dom";
 
 const Card = ({ home }) => {

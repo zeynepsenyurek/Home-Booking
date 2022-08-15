@@ -1,4 +1,4 @@
-import { Context } from "../../Contexts/Context";
+import { Context } from "../../contexts/Context";
 import { IconError } from "../../assets/icon";
 import { signup } from "../Firebase/Firebase";
 import { useState, useContext } from "react";

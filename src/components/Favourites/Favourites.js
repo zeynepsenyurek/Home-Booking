@@ -1,5 +1,5 @@
 import "../style.scss";
-import { Context } from "../../Contexts/Context";
+import { Context } from "../../contexts/Context";
 import Card from "../Card/Card";
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";

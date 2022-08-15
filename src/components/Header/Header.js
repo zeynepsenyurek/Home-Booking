@@ -2,7 +2,7 @@ import "../Header/header.scss";
 import Search from "../Search/Search";
 import logo from "../../assets/img/Monix.png";
 import { IconArrow, IconHeartFill, IconMenu } from "../../assets/icon";
-import { Context } from "../../Contexts/Context";
+import { Context } from "../../contexts/Context";
 import { useAuth, logout } from "../Firebase/Firebase";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { useContext, useState, useEffect } from "react";

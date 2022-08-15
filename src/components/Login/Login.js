@@ -1,6 +1,6 @@
 import "./login.scss";
 import { IconError } from "../../assets/icon";
-import { Context } from "../../context/Context";
+import { Context } from "../../contexts/Context";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { login } from "../Firebase/Firebase";

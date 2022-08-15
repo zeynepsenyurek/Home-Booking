@@ -8,8 +8,6 @@ import Footer from "./components/Footer/Footer";
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
 import Profile from "./components/Profile/Profile";
-import { useContext } from "react";
-import { Context } from "./Contexts/Context";
 import Header from "./components/Header/Header";
 
 function App() {

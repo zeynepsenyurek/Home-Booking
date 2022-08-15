@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { AsyncPaginate } from "react-select-async-paginate";
 import { useNavigate } from "react-router-dom";
-import { Context } from "../../context/Context";
+import { Context } from "../../contexts/Context";
 
 import { GEO_API_URL, geoApiOptions } from "../../api/Api";
 

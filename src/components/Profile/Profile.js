@@ -1,7 +1,7 @@
 import "./profile.scss";
 import profileIcon from "../../assets/img/profile-icon.jpg";
 import { useContext } from "react";
-import { Context } from "../../Contexts/Context";
+import { Context } from "../../contexts/Context";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useAuth, logout, upload } from "../Firebase/Firebase";
 import { useEffect, useState } from "react";
