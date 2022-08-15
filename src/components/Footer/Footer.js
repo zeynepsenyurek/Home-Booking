@@ -28,7 +28,7 @@ const Footer = () => {
     setSuccessMsg("Succesfully subscribed!");
   };
 
-  // controlled footer only appears on some pages
+  // not displaying footer on some pages
   if (pathname === "/" || pathname === "/login" || pathname === "/signup") {
     return null;
   }

@@ -1,5 +1,5 @@
 import "./modal.scss";
-import { IconError } from "../../assets/icon";
+import { IconError } from "../../assets/ico";
 import { useState } from "react";
 import { useAuth } from "../Firebase/Firebase";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
@@ -38,8 +38,8 @@ const Modal = ({ closeModal }) => {
       sendForm();
     }
   };
-  
-  // if user hasn't been logged in or registered yet, 
+
+  // if user hasn't been logged in or registered yet,
   // redirect user to login / signup page
   // then redirect user to the previous page again
   const onClickHome = () => {

@@ -6,10 +6,10 @@ import { NavLink } from "react-router-dom";
 
 const Favourites = () => {
   const { favs } = useContext(Context);
-  // Conditionally rendering based on fav array's length
   return (
     <div>
       <div className="home-container">
+        {/* // Conditionally rendering based on fav array's length in case there are no favourites*/}
         {favs.length ? (
           favs?.map((home) => <Card key={home.id} home={home} />)
         ) : (

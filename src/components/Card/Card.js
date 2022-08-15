@@ -5,7 +5,7 @@ import {
   IconRating,
   IconHeartEmpty,
   IconHeartFill,
-} from "../../assets/icon";
+} from "../../assets/ico";
 import { useContext, useEffect, useState } from "react";
 import { Context } from "../../contexts/Context";
 import { NavLink } from "react-router-dom";
@@ -24,7 +24,7 @@ const Card = ({ home }) => {
   }, []);
 
   // push liked home to favs array to display in liked properties
-  const handleOnClick = () => {
+  const handleLikedProperties = () => {
     if (liked) {
       setFavs((prevState) => {
         return prevState.filter((fav) => fav.id !== home.id);
@@ -36,7 +36,7 @@ const Card = ({ home }) => {
   };
 
   // when get property details button clicked, details state changes with current home
-  const clickHandler = () => {
+  const handleHomeState = () => {
     setDetails(home);
   };
 
@@ -45,7 +45,7 @@ const Card = ({ home }) => {
       <div className="card__box">
         <img src={home.images?.[0]} className="card__img"></img>
       </div>
-      <button onClick={handleOnClick} className="card__button-sm">
+      <button onClick={handleLikedProperties} className="card__button-sm">
         {liked ? (
           <IconHeartFill width={28} height={28} />
         ) : (
@@ -72,7 +72,7 @@ const Card = ({ home }) => {
             </p>
           </div>
           <NavLink to="/details">
-            <button className="card__button" onClick={clickHandler}>
+            <button className="card__button" onClick={handleHomeState}>
               Get Property Details
             </button>
           </NavLink>

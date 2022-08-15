@@ -1,4 +1,4 @@
-import { ChevronRight, ChevronLeft } from "../../assets/icon";
+import { ChevronRight, ChevronLeft } from "../../assets/ico";
 import "../Details/details.scss";
 
 const BtnSlider = ({ direction, moveSlide }) => {

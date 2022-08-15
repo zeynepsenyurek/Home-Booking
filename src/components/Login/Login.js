@@ -1,5 +1,5 @@
 import "./login.scss";
-import { IconError } from "../../assets/icon";
+import { IconError } from "../../assets/ico";
 import { Context } from "../../contexts/Context";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";

@@ -1,5 +1,5 @@
 import { Context } from "../../contexts/Context";
-import { IconError } from "../../assets/icon";
+import { IconError } from "../../assets/ico";
 import { signup } from "../Firebase/Firebase";
 import { useState, useContext } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";

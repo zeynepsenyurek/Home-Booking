@@ -1,5 +1,5 @@
 import "../Details/details.scss";
-import { IconStar } from "../../assets/icon";
+import { IconStar } from "../../assets/ico";
 import BtnSlider from "./BtnSlider";
 import Modal from "../Modal/Modal";
 import { useContext, useState } from "react";

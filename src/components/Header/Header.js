@@ -1,23 +1,22 @@
 import "../Header/header.scss";
 import Search from "../Search/Search";
 import logo from "../../assets/img/Monix.png";
-import { IconArrow, IconHeartFill, IconMenu } from "../../assets/icon";
+import { IconArrow, IconHeartFill, IconMenu } from "../../assets/ico";
 import { Context } from "../../contexts/Context";
 import { useAuth, logout } from "../Firebase/Firebase";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { useContext, useState, useEffect } from "react";
 
 const Header = () => {
-  // state of viewport size
-  const [desktop, setDesktop] = useState(window.innerWidth > 800);
   const [menuItems, setMenuItems] = useState(false);
   const [isMenuClicked, setIsMenuClicked] = useState(false);
   const { loading, setLoading } = useContext(Context);
   const currentUser = useAuth();
   const { pathname } = useLocation();
   const navigate = useNavigate();
+  // state of viewport size
+  const [desktop, setDesktop] = useState(window.innerWidth > 800);
 
-  // conditionally render based on viewport size
   const updateMedia = () => {
     setDesktop(window.innerWidth > 800);
   };
@@ -30,12 +29,9 @@ const Header = () => {
   // open hamburger menu
   const openMenu = () => {
     setIsMenuClicked(!isMenuClicked);
-
-    return;
   };
 
-  //logout
-  async function handleLogout() {
+  const handleLogout = async () => {
     closeHamburgerMenu();
     setLoading(true);
     try {
@@ -45,7 +41,7 @@ const Header = () => {
     }
     setLoading(false);
     navigate("/home");
-  }
+  };
 
   const closeHamburgerMenu = () => {
     setMenuItems(!setMenuItems);
