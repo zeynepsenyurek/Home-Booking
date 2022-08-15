@@ -1,6 +1,6 @@
-import { CityContext } from "../../Contexts/CityContext";
+import { Context } from "../../Contexts/Context";
 import { IconError } from "../../assets/icon";
-import { signup, useAuth } from "../Firebase/Firebase";
+import { signup } from "../Firebase/Firebase";
 import { useState, useContext } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 
@@ -13,9 +13,7 @@ const Register = () => {
 
   const { state } = useLocation();
 
-  const { loading, setLoading } = useContext(CityContext);
-
-  const currentUser = useAuth();
+  const { loading, setLoading } = useContext(Context);
   const navigate = useNavigate();
 
   const signUp = async (e) => {

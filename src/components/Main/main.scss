@@ -15,11 +15,25 @@
   &__heading {
     color: #fff;
     font-size: 56px;
+
+    @media only screen and (max-width: $bp-medium) {
+      font-size: 42px;
+    }
+    @media only screen and (max-width: $bp-small) {
+      font-size: 34px;
+    }
+    @media only screen and (max-width: $bp-smallest) {
+      font-size: 25px;
+    }
   }
 
   &__content {
     font-size: 18px;
     transform: translateY(-100px);
+
+    @media only screen and (max-width: $bp-smallest) {
+      transform: none;
+    }
   }
 }
 .search-container {
@@ -32,5 +46,9 @@
   & div {
     padding: 5px;
     border-radius: 30px;
+
+    @media only screen and (max-width: $bp-smallest) {
+      font-size: 14px;
+    }
   }
 }

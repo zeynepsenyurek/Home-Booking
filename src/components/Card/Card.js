@@ -7,15 +7,14 @@ import {
   IconHeartFill,
 } from "../../assets/icon";
 import { useContext, useEffect, useState } from "react";
-import { CityContext } from "../../Contexts/CityContext";
+import { Context } from "../../Contexts/Context";
 import { NavLink } from "react-router-dom";
-import { useLocation } from "react-router-dom";
 
 const Card = ({ home }) => {
   const [liked, setLiked] = useState(false);
-  const { favs, setFavs, details, setDetails } = useContext(CityContext);
-  const { pathname } = useLocation();
+  const { favs, setFavs, setDetails } = useContext(Context);
 
+  // control like state
   useEffect(() => {
     favs?.map((fav) => {
       if (fav.id === home.id) {
@@ -24,6 +23,7 @@ const Card = ({ home }) => {
     });
   }, []);
 
+  // push liked home to favs array to display in liked properties
   const handleOnClick = () => {
     if (liked) {
       setFavs((prevState) => {
@@ -35,8 +35,9 @@ const Card = ({ home }) => {
     setLiked((prevState) => !prevState);
   };
 
+  // when get property details button clicked, details state changes with current home
   const clickHandler = () => {
-    setDetails([home]);
+    setDetails(home);
   };
 
   return (
@@ -51,7 +52,6 @@ const Card = ({ home }) => {
           <IconHeartEmpty width={28} height={28} />
         )}
       </button>
-
       <div className="card__info">
         <h4 className="card__title">{home.title}</h4>
         <div className="property__details">
@@ -62,7 +62,6 @@ const Card = ({ home }) => {
           <div className="card__details">
             <IconHome />
             <p className="card__text">
-              {/* {home.beds < 2 ? ` ${home.beds} room` : ` ${home.beds} rooms`} */}
               {home.beds} room{home.beds > 1 ? "s" : ""}
             </p>
           </div>

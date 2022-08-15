@@ -1,12 +1,12 @@
-import { useContext, useEffect } from "react";
-import { CityContext } from "../../Contexts/CityContext";
-import { NavLink } from "react-router-dom";
-import Card from "../Card/Card";
 import "../style.scss";
+import { Context } from "../../Contexts/Context";
+import Card from "../Card/Card";
+import { useContext } from "react";
+import { NavLink } from "react-router-dom";
 
 const Favourites = () => {
-  const { favs } = useContext(CityContext);
-
+  const { favs } = useContext(Context);
+  // Conditionally rendering based on fav array's length
   return (
     <div>
       <div className="home-container">

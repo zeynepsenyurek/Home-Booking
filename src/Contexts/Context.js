@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import React from "react";
-import { signup, useAuth } from "../components/Firebase/Firebase";
 
-export const CityContext = React.createContext();
+export const Context = React.createContext();
 
-const CityContextProvider = (props) => {
+const ContextProvider = (props) => {
   const [city, setCity] = useState([]);
   const [property, setProperty] = useState([]);
   const [favs, setFavs] = useState([]);
@@ -34,9 +33,7 @@ const CityContextProvider = (props) => {
     loading,
   };
 
-  return (
-    <CityContext.Provider value={value}>{props.children}</CityContext.Provider>
-  );
+  return <Context.Provider value={value}>{props.children}</Context.Provider>;
 };
 
-export default CityContextProvider;
+export default ContextProvider;

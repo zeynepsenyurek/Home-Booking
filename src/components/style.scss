@@ -8,10 +8,10 @@ $color-bg: #f8e6bf7f;
 $color-secondary: #dd6c6b;
 
 // RESPONSIVE BREAKPOINTS
-$bp-large: 1000px; // 1000px
-$bp-medium: 800px; // 800px
-$bp-small: 600px; // 600px
-$bp-smallest: 500px; // 500px
+$bp-large: 1000px;
+$bp-medium: 800px;
+$bp-small: 600px;
+$bp-smallest: 500px;
 
 *,
 *::before,
@@ -25,6 +25,8 @@ html {
   padding: 0;
   font-family: "Poppins", sans-serif;
 }
+
+// MIXINS
 
 @mixin flex {
   display: flex;
@@ -56,16 +58,18 @@ html {
 }
 
 @mixin register-button {
+  width: 100%;
   color: #fff;
   border: none;
   border-radius: 5px;
-  cursor: pointer;
-  width: 100%;
   font-size: 18px;
+  transition: all 0.4s;
   padding: 10px;
   margin: 30px 0px;
-  transition: all 0.4s;
+  cursor: pointer;
 }
+
+// RE-USABLE STYLES
 
 .main-button {
   @include home-button;

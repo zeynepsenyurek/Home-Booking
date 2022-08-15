@@ -3,9 +3,9 @@
 .container-slider {
   max-width: 700px;
   height: 450px;
-  margin: 100px auto 0;
   position: relative;
   overflow: hidden;
+  margin: 100px auto 0;
   border-radius: 8px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
@@ -44,13 +44,13 @@
 
 .btn-slide {
   @include flex;
-  justify-content: center;
   width: 50px;
   height: 50px;
+  position: absolute;
+  justify-content: center;
   border-radius: 50%;
   background: #f1f1f18a;
   border: 1px solid rgba(34, 34, 34, 0.287);
-  position: absolute;
   cursor: pointer;
   transition: all 0.4s;
 
@@ -78,14 +78,14 @@
   }
 
   &__container {
-    padding: 50px 40px;
     max-width: 700px;
-    margin: auto;
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
     background-color: $color-bg;
     text-align: center;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.31);
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    padding: 50px 40px;
+    margin: auto;
 
     @media only screen and (max-width: $bp-medium) {
       max-width: 580px;
@@ -111,9 +111,9 @@
     & h2 {
       font-size: 24px;
       font-family: "Poppins", sans-serif;
+      color: #3d2a34;
       text-align: center;
       margin-bottom: 50px;
-      color: #3d2a34;
     }
   }
 }

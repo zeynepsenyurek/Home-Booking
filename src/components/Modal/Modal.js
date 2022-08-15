@@ -1,7 +1,7 @@
-import { useState } from "react";
 import "./modal.scss";
 import { IconError } from "../../assets/icon";
-import { useAuth, logout } from "../Firebase/Firebase";
+import { useState } from "react";
+import { useAuth } from "../Firebase/Firebase";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 
 const Modal = ({ closeModal }) => {
@@ -14,6 +14,7 @@ const Modal = ({ closeModal }) => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
 
+  // form validation
   const sendForm = async (e) => {
     setErrorMsg("");
 
@@ -37,7 +38,10 @@ const Modal = ({ closeModal }) => {
       sendForm();
     }
   };
-
+  
+  // if user hasn't been logged in or registered yet, 
+  // redirect user to login / signup page
+  // then redirect user to the previous page again
   const onClickHome = () => {
     navigate("/", { state: { previousPath: pathname } });
   };
@@ -56,7 +60,6 @@ const Modal = ({ closeModal }) => {
           </p>
           {errorMsg && (
             <div className="error-msg">
-              {" "}
               <IconError /> {errorMsg}
             </div>
           )}

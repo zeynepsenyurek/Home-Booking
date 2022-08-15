@@ -1,26 +1,18 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { AsyncPaginate } from "react-select-async-paginate";
 import { useNavigate } from "react-router-dom";
-import { CityContext } from "../../Contexts/CityContext";
+import { Context } from "../../Contexts/Context";
 
 import { GEO_API_URL, geoApiOptions } from "../../Api";
 
 const Search = () => {
-  const { city, setCity } = useContext(CityContext);
+  const { city, setCity } = useContext(Context);
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   if (city.label) {
-  //     console.log("heree")
-  //     navigate("/home");
-  //   }
-  // }, [city]);
-
-  // minPopulation=1000000
-
+  // fetch geoDB location API
   const loadOptions = async (inputValue) => {
     return await fetch(
-      `${GEO_API_URL}/cities?minPopulation=1000000&namePrefix=${inputValue}`,
+      `${GEO_API_URL}/cities?minPopulation=500000&namePrefix=${inputValue}`,
       geoApiOptions
     )
       .then((response) => response.json())

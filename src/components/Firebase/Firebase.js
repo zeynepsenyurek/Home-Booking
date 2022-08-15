@@ -1,4 +1,5 @@
 // Import the functions you need from the SDKs you need
+import { useEffect, useState } from "react";
 import { initializeApp } from "firebase/app";
 import {
   getAuth,
@@ -9,12 +10,10 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
-import { useContext, useEffect, useState } from "react";
-import { CityContext } from "../../Contexts/CityContext";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
+// Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyARdl0lNuOwNpgnDeoijeKyh7hEIJKMOEc",
   authDomain: "auth-test-2ecb1.firebaseapp.com",
@@ -43,7 +42,6 @@ export function logout() {
 
 // Custom React Hook
 export function useAuth() {
-  // const { currentUser, setCurrentUser } = useContext(CityContext)
   const [currentUser, setCurrentUser] = useState();
 
   useEffect(() => {
@@ -67,10 +65,10 @@ export async function upload(file, currentUser, setLoading) {
 
   const photoURL = await getDownloadURL(fileRef);
 
-  // updating the profile picture dynamically
+  // Updating the profile picture dynamically
 
   updateProfile(currentUser, { photoURL });
   setLoading(false);
-  alert("uploaded file");
+  alert("File uploaded");
   window.location.reload();
 }

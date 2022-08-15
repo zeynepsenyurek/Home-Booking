@@ -1,47 +1,40 @@
-import BtnSlider from "./BtnSlider";
-import Profile from "../Profile/Profile";
 import "../Details/details.scss";
-import { NavLink, useLocation } from "react-router-dom";
-import { useContext, useState } from "react";
-import { CityContext } from "../../Contexts/CityContext";
-import { IconHome, IconPrice, IconRating, IconStar } from "../../assets/icon";
+import { IconStar } from "../../assets/icon";
+import BtnSlider from "./BtnSlider";
 import Modal from "../Modal/Modal";
-import Header from "../Header/Header";
+import { useContext, useState } from "react";
+import { Context } from "../../Contexts/Context";
 
 const PropertyDetails = () => {
-  const { details } = useContext(CityContext);
+  // details state equals to current home which is clicked
+  const { details } = useContext(Context);
   const [openModal, setOpenModal] = useState(false);
-
+  // slideIndex refers to home object's image array
   const [slideIndex, setSlideIndex] = useState(1);
+
   const nextSlide = () => {
-    if (slideIndex !== details[0]?.images.length) {
+    // if your current img's index is smaller than the length of the array,
+    // then add 1, if it's equal to the length of the array then turn back to first pic
+    if (slideIndex !== details?.images.length) {
       setSlideIndex(slideIndex + 1);
-    } else if (slideIndex === details[0]?.images.length) {
+    } else if (slideIndex === details?.images.length) {
       setSlideIndex(1);
     }
   };
+
+  // same function with reversed logic
   const prevSlide = () => {
     if (slideIndex !== 1) {
       setSlideIndex(slideIndex - 1);
     } else if (slideIndex === 1) {
-      setSlideIndex(details[0]?.images.length);
+      setSlideIndex(details?.images.length);
     }
   };
 
-  console.log(details);
-
   return (
     <div className="details">
-      {/* <div className="header">
-        <div>LOGO</div>
-        <NavLink to="/home" className="header__link">
-          Back to home
-        </NavLink>
-        <Profile />
-      </div> */}
-
       <section className="container-slider">
-        {details[0]?.images.map((obj, index) => {
+        {details?.images.map((obj, index) => {
           return (
             <div
               className={
@@ -56,41 +49,38 @@ const PropertyDetails = () => {
         <BtnSlider moveSlide={prevSlide} direction={"prev"} />
       </section>
       <div className="details__container">
-        <h2>{details[0].listingName}</h2>
+        <h2>{details.listingName}</h2>
         <div className="text__wrapper">
           <div className="details__container--left">
             <div className="features">
               <IconStar />
-              Location: {details[0].publicAddress}
+              Location: {details.publicAddress}
             </div>
             <div className="features">
               <IconStar />
-              Price: {details[0].price}
+              Price: {details.price}
             </div>
             <div className="features">
-              {" "}
-              <IconStar /> Bathroom: {details[0].listingBathroomLabel}
+              <IconStar /> Bathroom: {details.listingBathroomLabel}
             </div>
             <div className="features">
-              {" "}
-              <IconStar /> Bedroom: {details[0].listingBedLabel}
+              <IconStar /> Bedroom: {details.listingBedLabel}
             </div>
           </div>
           <div className="details__container--right">
             <div className="features">
               <IconStar />
-              Rating: {details[0].avgRating}
+              Rating: {details.avgRating}
             </div>
             <div className="features">
-              {" "}
-              <IconStar /> Guests: {details[0].listingGuestLabel}
+              <IconStar /> Guests: {details.listingGuestLabel}
             </div>
             <div className="features">
               <IconStar /> Details:
             </div>
             <div className="details__amenities">
-              {details[0].listingPreviewAmenityNames.length > 0 ? (
-                details[0].listingPreviewAmenityNames.map((el) => (
+              {details.listingPreviewAmenityNames.length > 0 ? (
+                details.listingPreviewAmenityNames.map((el) => (
                   <div> -{el} </div>
                 ))
               ) : (

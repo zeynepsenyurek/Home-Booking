@@ -1,6 +1,6 @@
-import { useLocation } from "react-router-dom";
 import "./footer.scss";
 import logo from "../../assets/img/Monix.png";
+import { NavLink, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 const Footer = () => {
@@ -9,12 +9,14 @@ const Footer = () => {
   const [successMsg, setSuccessMsg] = useState("");
   const { pathname } = useLocation();
 
+  // clears the success msg after 2 seconds
   useEffect(() => {
     setTimeout(() => {
       setSuccessMsg("");
     }, 2000);
   }, [successMsg]);
 
+  // subscribe form validation
   const handleSubscribe = () => {
     setSuccessMsg("");
     if (!email.includes("@")) {
@@ -26,6 +28,7 @@ const Footer = () => {
     setSuccessMsg("Succesfully subscribed!");
   };
 
+  // controlled footer only appears on some pages
   if (pathname === "/" || pathname === "/login" || pathname === "/signup") {
     return null;
   }
@@ -37,11 +40,14 @@ const Footer = () => {
         <div className="footer__pages">
           <span className="footer__heading"> Pages </span>
           <ul>
-            <a className="footer__list-item">Home</a>
-            <a className="footer__list-item">Products</a>
+            <NavLink to="/" className="footer__list-item">
+              Home
+            </NavLink>
+            <NavLink to="/profile" className="footer__list-item">
+              Profile
+            </NavLink>
           </ul>
         </div>
-
         <div className="footer__contact">
           <span className="footer__heading"> Contact Us </span>
           <ul>
@@ -57,7 +63,6 @@ const Footer = () => {
         <p className="footer__heading--text">
           Join our newsletter to stay up to date on features and releases.
         </p>
-
         <div action="#" className="footer__form">
           <div className="footer__form-box">
             <input

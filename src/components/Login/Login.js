@@ -1,9 +1,10 @@
 import "./login.scss";
-import { NavLink, useLocation, useNavigate } from "react-router-dom";
-import { CityContext } from "../../Contexts/CityContext";
-import { useContext, useState } from "react";
 import { IconError } from "../../assets/icon";
-import { signup, useAuth, login } from "../Firebase/Firebase";
+import { Context } from "../../Contexts/Context";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import { useContext, useState } from "react";
+import { login } from "../Firebase/Firebase";
+
 const Login = () => {
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
@@ -11,8 +12,9 @@ const Login = () => {
   const navigate = useNavigate();
   const { state } = useLocation();
 
-  const { loading, setLoading } = useContext(CityContext);
+  const { loading, setLoading } = useContext(Context);
 
+  // login form validation
   const signIn = async (e) => {
     setErrorMsg("");
     if (!password || !email) {
@@ -43,6 +45,7 @@ const Login = () => {
     }
   };
 
+  // on keypress "enter" signIn function invoked
   const onEnter = (key) => {
     if (key === "Enter") {
       signIn();

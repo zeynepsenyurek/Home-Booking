@@ -1,20 +1,20 @@
 @import "../style.scss";
 
 .modal {
+  width: 70%;
   position: absolute;
   top: 105%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 70%;
+  z-index: 10;
   color: #3d2a34;
-
   background-color: #eee;
-  padding: 60px;
   border-radius: 5px;
   box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
-  z-index: 10;
+  padding: 60px;
 
   @media only screen and (max-width: $bp-smallest) {
+    width: 80%;
     padding: 20px;
   }
 
@@ -24,10 +24,10 @@
     right: 30px;
     font-size: 24px;
     color: #3d2a34;
-    cursor: pointer;
     border: none;
     background: none;
     transition: all 6s ease-in-out;
+    cursor: pointer;
     @media only screen and (max-width: $bp-smallest) {
       font-size: 18px;
       right: 15px;
@@ -38,11 +38,11 @@
       content: "";
       width: 40px;
       height: 40px;
-      background: #adadad8a;
-      border-radius: 50%;
       position: absolute;
       top: -6px;
       left: -6px;
+      background: #adadad8a;
+      border-radius: 50%;
 
       @media only screen and (max-width: $bp-smallest) {
         display: none;
@@ -63,10 +63,10 @@
     border: none;
     resize: none;
     outline: none;
-    margin: 10px 0px;
-    padding: 10px;
     background-color: rgb(222, 222, 222);
     border-radius: 8px;
+    padding: 10px;
+    margin: 10px 0px;
 
     &:focus {
       border-bottom-left-radius: 0;

@@ -5,28 +5,32 @@
 
   &-container {
     @include flex;
-    flex-wrap: wrap;
     width: 100%;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
     color: $color-primary;
+    background-color: $color-bg;
     padding-top: 50px;
     padding-bottom: 50px;
-    background-color: $color-bg;
   }
 }
 
 .card {
   width: 385px;
   height: 560px;
-  margin: 15px;
-  float: left;
+  position: relative;
+  background: #f2f2f2;
   text-align: center;
   border-radius: 20px;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.092), 0 10px 10px rgba(0, 0, 0, 0.092);
   transition: 0.4s;
-  background: #f2f2f2;
-  position: relative;
+  margin: 15px;
+
+  @media only screen and (max-width: $bp-small) {
+    width: 355px;
+    height: 550px;
+  }
 
   &:hover {
     transform: translateY(-1.2rem);
@@ -59,15 +63,10 @@
     padding-top: 10px;
   }
 
-  &__info--box {
-    @include flex;
-    justify-content: center;
-  }
-
   &__title {
     font-size: 20px;
-    margin: 10px;
     font-weight: 400;
+    margin: 10px;
   }
   &__text {
     font-size: 16px;
@@ -97,19 +96,23 @@
       #d66d75 100%
     );
 
-    margin: 10px;
-    padding: 17px 40px;
+    color: white;
     font-family: "Poppins", sans-serif;
     letter-spacing: 0.5px;
     text-align: center;
     text-transform: uppercase;
+    margin: 10px;
+    padding: 17px 40px;
     transition: 0.5s;
     background-size: 200% auto;
-    color: white;
     box-shadow: 0 0 20px #eee;
     border-radius: 10px;
     border: none;
     cursor: pointer;
+
+    @media only screen and (max-width: $bp-small) {
+      padding: 15px 36px;
+    }
 
     &:hover {
       background-position: right center;
@@ -124,18 +127,4 @@
   flex-direction: column;
   justify-content: center;
   gap: 15px;
-}
-
-.chevron {
-  @include button-details;
-}
-
-.right {
-  top: 27%;
-  right: 5%;
-}
-
-.left {
-  top: 27%;
-  left: 5%;
 }

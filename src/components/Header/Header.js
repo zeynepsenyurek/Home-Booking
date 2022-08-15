@@ -1,18 +1,18 @@
 import "../Header/header.scss";
-import { IconArrow, IconHeartFill, IconMenu } from "../../assets/icon";
 import Search from "../Search/Search";
-import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import logo from "../../assets/img/Monix.png";
-import { useContext, useState, useEffect } from "react";
-import { CityContext } from "../../Contexts/CityContext";
+import { IconArrow, IconHeartFill, IconMenu } from "../../assets/icon";
+import { Context } from "../../Contexts/Context";
 import { useAuth, logout } from "../Firebase/Firebase";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
+import { useContext, useState, useEffect } from "react";
 
 const Header = () => {
   // state of viewport size
   const [desktop, setDesktop] = useState(window.innerWidth > 800);
   const [menuItems, setMenuItems] = useState(false);
   const [isMenuClicked, setIsMenuClicked] = useState(false);
-  const { loading, setLoading } = useContext(CityContext);
+  const { loading, setLoading } = useContext(Context);
   const currentUser = useAuth();
   const { pathname } = useLocation();
   const navigate = useNavigate();
@@ -28,7 +28,6 @@ const Header = () => {
   });
 
   // open hamburger menu
-
   const openMenu = () => {
     setIsMenuClicked(!isMenuClicked);
 
@@ -36,7 +35,6 @@ const Header = () => {
   };
 
   //logout
-
   async function handleLogout() {
     closeHamburgerMenu();
     setLoading(true);
@@ -74,7 +72,6 @@ const Header = () => {
             <NavLink to="/likes" className="header__link">
               Liked Properties
             </NavLink>
-
             <IconHeartFill />
           </div>
           <div className="header__links">
@@ -92,18 +89,16 @@ const Header = () => {
               </div>
             ) : (
               <div>
-                {" "}
                 <NavLink to="/login" className="header__link header__login">
                   Log in
                 </NavLink>
                 <NavLink to="/signup" className="header__link header__signup">
                   Sign up
                   <IconArrow />
-                </NavLink>{" "}
+                </NavLink>
               </div>
             )}
           </div>
-          {/* <Profile /> */}
         </div>
       ) : (
         <button className="hamburger-button" onClick={openMenu}>
