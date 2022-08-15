@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import "../Home/home.scss";
 import Card from "../Card/Card";
-import { Context } from "../../Contexts/Context";
+import { Context } from "../../context/Context";
 
 const Home = () => {
   const { property, loading, city } = useContext(Context);

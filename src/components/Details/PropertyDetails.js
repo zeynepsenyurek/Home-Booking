@@ -3,7 +3,7 @@ import { IconStar } from "../../assets/icon";
 import BtnSlider from "./BtnSlider";
 import Modal from "../Modal/Modal";
 import { useContext, useState } from "react";
-import { Context } from "../../Contexts/Context";
+import { Context } from "../../context/Context";
 
 const PropertyDetails = () => {
   // details state equals to current home which is clicked
@@ -55,29 +55,33 @@ const PropertyDetails = () => {
           <div className="details__container--left">
             <div className="features">
               <IconStar />
-              Location: {details.publicAddress}
+              <span>Location: {details.publicAddress}</span>
             </div>
             <div className="features">
               <IconStar />
-              Price: {details.price}
+              <span>Price: {details.price}</span>
             </div>
             <div className="features">
-              <IconStar /> Bathroom: {details.listingBathroomLabel}
+              <IconStar />
+              <span>Bathroom: {details.listingBathroomLabel}</span>
             </div>
             <div className="features">
-              <IconStar /> Bedroom: {details.listingBedLabel}
+              <IconStar /> 
+              <span>Bedroom: {details.listingBedLabel}</span>
             </div>
           </div>
           <div className="details__container--right">
             <div className="features">
               <IconStar />
-              Rating: {details.avgRating}
+             <span>Rating: {details.avgRating}</span> 
             </div>
             <div className="features">
-              <IconStar /> Guests: {details.listingGuestLabel}
+              <IconStar />
+              <span>Guests: {details.listingGuestLabel}</span>
             </div>
             <div className="features">
-              <IconStar /> Details:
+              <IconStar />
+              <span>Details: </span>
             </div>
             <div className="details__amenities">
               {details.listingPreviewAmenityNames.length > 0 ? (

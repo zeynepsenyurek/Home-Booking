@@ -125,6 +125,10 @@
     flex-direction: column;
     gap: 25px;
   }
+
+  & span {
+    text-align: left;
+  }
 }
 
 .features {

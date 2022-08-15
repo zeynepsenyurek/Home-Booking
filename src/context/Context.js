@@ -5,7 +5,7 @@ import {
   PROPERTY_API_URL,
   searchDestinationApi,
   searchPropertyByPlace,
-} from "../Api";
+} from "../api/Api";
 
 export const Context = React.createContext();
 
