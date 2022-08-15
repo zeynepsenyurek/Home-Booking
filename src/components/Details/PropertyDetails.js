@@ -37,6 +37,7 @@ const PropertyDetails = () => {
         {details?.images.map((obj, index) => {
           return (
             <div
+              key={obj}
               className={
                 slideIndex === index + 1 ? "slide active-anim" : "slide"
               }
