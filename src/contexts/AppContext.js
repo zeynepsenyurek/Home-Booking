@@ -7,7 +7,7 @@ import {
   searchPropertyByPlace,
 } from "../api/Api";
 
-export const Context = React.createContext();
+export const AppContext = React.createContext();
 
 const ContextProvider = (props) => {
   const [city, setCity] = useState([]);
@@ -54,10 +54,6 @@ const ContextProvider = (props) => {
   };
 
   useEffect(() => {
-    console.log(property);
-  }, [property]);
-
-  useEffect(() => {
     if (city.label) getCity();
   }, [city]);
   const value = {
@@ -75,7 +71,9 @@ const ContextProvider = (props) => {
     loading,
   };
 
-  return <Context.Provider value={value}>{props.children}</Context.Provider>;
+  return (
+    <AppContext.Provider value={value}>{props.children}</AppContext.Provider>
+  );
 };
 
 export default ContextProvider;

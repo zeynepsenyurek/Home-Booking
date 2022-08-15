@@ -1,5 +1,5 @@
 import "./footer.scss";
-import logo from "../../assets/img/Monix.png";
+import logo from "../../assets/Img/Monix.png";
 import { NavLink, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 

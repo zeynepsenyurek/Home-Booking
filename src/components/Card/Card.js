@@ -5,14 +5,14 @@ import {
   IconRating,
   IconHeartEmpty,
   IconHeartFill,
-} from "../../assets/ico";
+} from "../../assets/Icon";
 import { useContext, useEffect, useState } from "react";
-import { Context } from "../../contexts/Context";
+import { AppContext } from "../../contexts/AppContext";
 import { NavLink } from "react-router-dom";
 
 const Card = ({ home }) => {
   const [liked, setLiked] = useState(false);
-  const { favs, setFavs, setDetails } = useContext(Context);
+  const { favs, setFavs, setDetails } = useContext(AppContext);
 
   // control like state
   useEffect(() => {

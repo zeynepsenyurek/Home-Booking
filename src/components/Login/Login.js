@@ -1,6 +1,6 @@
 import "./login.scss";
-import { IconError } from "../../assets/ico";
-import { Context } from "../../contexts/Context";
+import { IconError } from "../../assets/Icon";
+import { AppContext } from "../../contexts/AppContext";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { login } from "../Firebase/Firebase";
@@ -12,7 +12,7 @@ const Login = () => {
   const navigate = useNavigate();
   const { state } = useLocation();
 
-  const { loading, setLoading } = useContext(Context);
+  const { loading, setLoading } = useContext(AppContext);
 
   // login form validation
   const signIn = async (e) => {

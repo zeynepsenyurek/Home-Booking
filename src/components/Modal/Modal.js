@@ -1,5 +1,5 @@
 import "./modal.scss";
-import { IconError } from "../../assets/ico";
+import { IconError } from "../../assets/Icon";
 import { useState } from "react";
 import { useAuth } from "../Firebase/Firebase";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";

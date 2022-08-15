@@ -1,14 +1,14 @@
 import "./profile.scss";
-import profileIcon from "../../assets/img/profile-icon.jpg";
+import profileIcon from "../../assets/Img/profile-icon.jpg";
 import { useContext } from "react";
-import { Context } from "../../contexts/Context";
+import { AppContext } from "../../contexts/AppContext";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useAuth, logout, upload } from "../Firebase/Firebase";
 import { useEffect, useState } from "react";
 
 const Profile = () => {
   const navigate = useNavigate();
-  const { loading, setLoading } = useContext(Context);
+  const { loading, setLoading } = useContext(AppContext);
   const currentUser = useAuth();
   const [photo, setPhoto] = useState(null);
 

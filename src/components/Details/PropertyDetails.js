@@ -1,13 +1,13 @@
 import "../Details/details.scss";
-import { IconStar } from "../../assets/ico";
+import { IconStar } from "../../assets/Icon";
 import BtnSlider from "./BtnSlider";
 import Modal from "../Modal/Modal";
 import { useContext, useState } from "react";
-import { Context } from "../../contexts/Context";
+import { AppContext } from "../../contexts/AppContext";
 
 const PropertyDetails = () => {
   // details state equals to current home which is clicked
-  const { details } = useContext(Context);
+  const { details } = useContext(AppContext);
   const [openModal, setOpenModal] = useState(false);
   // slideIndex refers to home object's image array
   const [slideIndex, setSlideIndex] = useState(1);

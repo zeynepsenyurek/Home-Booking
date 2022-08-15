@@ -1,11 +1,11 @@
 import "../style.scss";
-import { Context } from "../../contexts/Context";
+import { AppContext } from "../../contexts/AppContext";
 import Card from "../Card/Card";
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 
 const Favourites = () => {
-  const { favs } = useContext(Context);
+  const { favs } = useContext(AppContext);
   return (
     <div>
       <div className="home-container">

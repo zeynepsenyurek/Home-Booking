@@ -1,5 +1,5 @@
-import { Context } from "../../contexts/Context";
-import { IconError } from "../../assets/ico";
+import { AppContext } from "../../contexts/AppContext";
+import { IconError } from "../../assets/Icon";
 import { signup } from "../Firebase/Firebase";
 import { useState, useContext } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
@@ -13,7 +13,7 @@ const Register = () => {
 
   const { state } = useLocation();
 
-  const { loading, setLoading } = useContext(Context);
+  const { loading, setLoading } = useContext(AppContext);
   const navigate = useNavigate();
 
   const signUp = async (e) => {
@@ -44,7 +44,6 @@ const Register = () => {
       } else if (response?.user?.email) {
         setLoading(false);
         navigate("/home");
-        console.log(state?.previousPath);
       }
     } catch {
       setErrorMsg("Please enter a valid email adress");

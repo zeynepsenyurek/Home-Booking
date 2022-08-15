@@ -1,8 +1,8 @@
 import "../Header/header.scss";
 import Search from "../Search/Search";
-import logo from "../../assets/img/Monix.png";
-import { IconArrow, IconHeartFill, IconMenu } from "../../assets/ico";
-import { Context } from "../../contexts/Context";
+import logo from "../../assets/Img/Monix.png";
+import { IconArrow, IconHeartFill, IconMenu } from "../../assets/Icon";
+import { AppContext } from "../../contexts/AppContext";
 import { useAuth, logout } from "../Firebase/Firebase";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { useContext, useState, useEffect } from "react";
@@ -10,7 +10,7 @@ import { useContext, useState, useEffect } from "react";
 const Header = () => {
   const [menuItems, setMenuItems] = useState(false);
   const [isMenuClicked, setIsMenuClicked] = useState(false);
-  const { loading, setLoading } = useContext(Context);
+  const { loading, setLoading } = useContext(AppContext);
   const currentUser = useAuth();
   const { pathname } = useLocation();
   const navigate = useNavigate();

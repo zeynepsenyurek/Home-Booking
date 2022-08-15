@@ -1,10 +1,10 @@
 import { useContext } from "react";
 import "../Home/home.scss";
 import Card from "../Card/Card";
-import { Context } from "../../contexts/Context";
+import { AppContext } from "../../contexts/AppContext";
 
 const Home = () => {
-  const { property, loading, city } = useContext(Context);
+  const { property, loading, city } = useContext(AppContext);
 
   return (
     <div className="home">

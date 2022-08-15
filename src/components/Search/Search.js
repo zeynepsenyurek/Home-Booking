@@ -1,12 +1,12 @@
 import { useContext } from "react";
 import { AsyncPaginate } from "react-select-async-paginate";
 import { useNavigate } from "react-router-dom";
-import { Context } from "../../contexts/Context";
+import { AppContext } from "../../contexts/AppContext";
 
 import { GEO_API_URL, geoApiOptions } from "../../api/Api";
 
 const Search = () => {
-  const { city, setCity } = useContext(Context);
+  const { city, setCity } = useContext(AppContext);
   const navigate = useNavigate();
 
   // fetch geoDB location API
